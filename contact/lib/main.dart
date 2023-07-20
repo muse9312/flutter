@@ -9,6 +9,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    // 글자위젯
+    // return MaterialApp(home: Text('안녕'));
+
+    // 아이콘 위젯
+// return MaterialApp(home: Icon(Icons.star));
+
+    // 이미지 위젯
+    // return MaterialApp(home: Image.asset('assets/Frame 6.png'));
+
+    // 박스 위젯
+    return MaterialApp(
+        home: Center(
+      child: Container(width: 30, height: 30, color: Colors.blue),
+    ));
   }
 }
