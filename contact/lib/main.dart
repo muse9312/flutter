@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     // return MaterialApp(home: Text('안녕'));
 
     // 아이콘 위젯
-// return MaterialApp(home: Icon(Icons.star));
+    // return MaterialApp(home: Icon(Icons.star));
 
     // 이미지 위젯
     // return MaterialApp(home: Image.asset('assets/Frame 6.png'));
