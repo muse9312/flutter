@@ -4,8 +4,16 @@ void main() {
   runApp(const MyApp()); // 앱 시작해주세요
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  var a = 1;
+  // var title = "연락처앱";
 
   @override
   Widget build(BuildContext context) {
@@ -115,33 +123,40 @@ class MyApp extends StatelessWidget {
 
     // 커스텀 위젯
 
-    var a = 1;
-
     return MaterialApp(
         home: Scaffold(
             floatingActionButton: FloatingActionButton(
                 child: Text(a.toString()),
                 onPressed: () {
-                  print(a);
-                  a++;
+                  setState(() {
+                    a++;
+                  });
                 }),
-            appBar: AppBar(),
+            appBar: AppBar(
+              title: Text("연락처앱"),
+            ),
             body: ShopItem(),
             bottomNavigationBar: BottomItem()));
   }
 }
 
-class ShopItem extends StatelessWidget {
+class ShopItem extends StatefulWidget {
   const ShopItem({super.key});
 
   @override
+  State<ShopItem> createState() => _ShopItemState();
+}
+
+class _ShopItemState extends State<ShopItem> {
+  var name = ["김세영", "박진아", "오세원"];
+  @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: 5,
+        itemCount: 3,
         itemBuilder: (context, item) {
           return ListTile(
             leading: Image.asset("assets/Frame 6.png"),
-            title: Text("홍길동"),
+            title: Text(name[item]),
           );
         });
   }
