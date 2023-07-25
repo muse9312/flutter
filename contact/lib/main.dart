@@ -19,9 +19,33 @@ class MyApp extends StatelessWidget {
     // return MaterialApp(home: Image.asset('assets/Frame 6.png'));
 
     // 박스 위젯
+    // return MaterialApp(
+    //     home: Center(
+    //   child: Container(width: 30, height: 30, color: Colors.blue),
+    // ));
+
+    // Scaffold
     return MaterialApp(
-        home: Center(
-      child: Container(width: 30, height: 30, color: Colors.blue),
+        home: Scaffold(
+      // 앱을 상중하로 나눠주는 위젯
+      appBar: AppBar(
+          title: Text(
+        '앱임',
+      )),
+      body: Container(
+        child: Text('안녕'),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: SizedBox(
+            height: 50,
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Icon(Icons.phone),
+                  Icon(Icons.message),
+                  Icon(Icons.contact_page),
+                ])),
+      ),
     ));
   }
 }
