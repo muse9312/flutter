@@ -65,17 +65,102 @@ class MyApp extends StatelessWidget {
     //   ),
     // ));
 
+    // return MaterialApp(
+    //   home: Scaffold(
+    //       appBar: AppBar(
+    //         title: Text("앱임"),
+    //       ),
+    //       body: SizedBox(
+    //           child: ElevatedButton(
+    //         onPressed: () {},
+    //         child: Text("글자"),
+    //         style: ButtonStyle(),
+    //       ))),
+    // );
+
+    // return MaterialApp(
+    //   home: Scaffold(
+    //     appBar: AppBar(),
+    //     body: Row(
+    //       children: [
+    //         Flexible(child: Container(color: Colors.red), flex: 5,),
+    //         Flexible(child: Container(color: Colors.green), flex: 5,),
+    //         Flexible(child: Container(color: Colors.black), flex: 5,),
+    //       ],
+    //     ),
+    //   ),
+    // );
+
+    // return MaterialApp(
+    //   home: Scaffold(
+    //     appBar: AppBar(),
+    //     body: Container(
+    //         height: 150,
+    //         padding: EdgeInsets.all(20),
+    //         child: Row(
+    //           children: [
+    //             Image.asset('assets/Frame 6.png', width: 150),
+    //             Container(
+    //               child: Column(children: [
+    //                 Text('캐논'),
+    //                 Text('끌올 10분전'),
+    //                 Text('1000원'),
+    //                 Icon(Icons.heart_broken),
+    //               ]),
+    //             )
+    //           ],
+    //         )),
+    //   ),
+    // );
+
+    // 커스텀 위젯
+
+    var a = 1;
+
     return MaterialApp(
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text("앱임"),
-          ),
-          body: SizedBox(
-              child: ElevatedButton(
-            onPressed: () {},
-            child: Text("글자"),
-            style: ButtonStyle(),
-          ))),
+        home: Scaffold(
+            floatingActionButton: FloatingActionButton(
+                child: Text(a.toString()),
+                onPressed: () {
+                  print(a);
+                  a++;
+                }),
+            appBar: AppBar(),
+            body: ShopItem(),
+            bottomNavigationBar: BottomItem()));
+  }
+}
+
+class ShopItem extends StatelessWidget {
+  const ShopItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: 5,
+        itemBuilder: (context, item) {
+          return ListTile(
+            leading: Image.asset("assets/Frame 6.png"),
+            title: Text("홍길동"),
+          );
+        });
+  }
+}
+
+class BottomItem extends StatelessWidget {
+  const BottomItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomAppBar(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Icon(Icons.phone),
+          Icon(Icons.message),
+          Icon(Icons.contact_page)
+        ],
+      ),
     );
   }
 }
