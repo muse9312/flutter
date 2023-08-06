@@ -1,44 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart'; // 플루터 SDK에서 제공되는 기본적인 라이브러리중 하나
-
-// void main() {
-//   runApp(MaterialApp(
-//     home: Scaffold(body: TextWiget()),
-//   ));
-// }
-
-// class TextWiget extends StatelessWidget {
-//   const TextWiget({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return SafeArea(
-//       child: Center(
-//         child: Text(
-//           'Hello  world!',
-//           style: TextStyle(color: Colors.black, fontSize: 40),
-//         ),
-//       ),
-//     );
-//   }
-// }
 
 void main() {
-  runApp(const MyApp());
+  runApp(const App());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class App extends StatefulWidget {
+  const App({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  int counter = 0;
+
+  void onClicked() {
+    setState(() {
+      counter = counter + 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Scaffold(
-      appBar: AppBar(
-        centerTitle: false,
-        title: Text('This is appbar '),
+      home: Scaffold(
+        backgroundColor: const Color(0xFFF4EDDB),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                'Click Count',
+                style: TextStyle(fontSize: 30),
+              ),
+              Text(
+                '$counter',
+                style: const TextStyle(fontSize: 30),
+              ),
+              IconButton(
+                iconSize: 40,
+                onPressed: onClicked,
+                icon: const Icon(
+                  Icons.add_box_rounded,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
-    ));
+    );
   }
 }
