@@ -37,6 +37,7 @@ class _AppState extends State<App> {
                 '$counter',
                 style: const TextStyle(fontSize: 30),
               ),
+              const Text(""),
               IconButton(
                 iconSize: 40,
                 onPressed: onClicked,

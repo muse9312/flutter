@@ -126,7 +126,7 @@ class MyApp extends StatelessWidget {
                       child: Column(
                         children: [
                           CurrencyCard(
-                            name: 'Euro',
+                            name: 'korea',
                             code: 'EUR',
                             amount: '6 428',
                             icon: Icons.euro_rounded,
